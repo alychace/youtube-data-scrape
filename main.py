@@ -99,7 +99,7 @@ if __name__ == "__main__":
   csvreader = csv.reader(input_file, delimiter=',', quotechar='"')
 
   for row in csvreader:
-    youtube_id = row[0].strip().split("watch?v=")[1]
+    youtube_id = row[0].strip().split("watch?v=")[1].split("&")[0]
     list_info(youtube, youtube_id, output_file)
 
   input_file.close()
