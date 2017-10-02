@@ -1,0 +1,2 @@
+## Usage
+	python3 main.py --input INPUT_FILE --output OUTPUT_FILE
