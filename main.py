@@ -99,8 +99,12 @@ if __name__ == "__main__":
   csvreader = csv.reader(input_file, delimiter=',', quotechar='"')
 
   for row in csvreader:
-    youtube_id = row[0].strip().split("watch?v=")[1].split("&")[0]
-    list_info(youtube, youtube_id, output_file)
+    try:
+      youtube_id = row[0].strip().split("watch?v=")[1].split("&")[0]
+      list_info(youtube, youtube_id, output_file)
+    except:
+        output_file.add("Error looking up " + row[0].strip(), "", "", "", "")
+        print("An error occured looking up " + row[0].strip())
 
   input_file.close()
   output_file.close()
